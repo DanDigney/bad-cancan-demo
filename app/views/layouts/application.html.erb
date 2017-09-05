@@ -12,6 +12,7 @@
     <nav class="header">
       <ul>
       <% if logged_in? %>
+      <h5>Welcome <%= current_user.name %></h5>
         <button class="button"><%= link_to "Log Out", session_path(current_user), method: :delete %></button>
         <button class="button"><%= link_to "Create A Post", new_post_path %></button>
       <% else %>

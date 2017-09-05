@@ -1,14 +1,17 @@
 class PostsController < ApplicationController
+  skip_authorization_check :only => [:index, :show]
   def index
     @posts = Post.all.order("created_at DESC")
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
+    p "*" * 80
+    p post_params
     if @post.save
       redirect_to @post
     else
