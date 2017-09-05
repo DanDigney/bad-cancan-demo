@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
-  skip_authorization_check :only => [:index, :show]
+  skip_authorization_check only: [:index, :show, :create, :new]
+  # skip_authorization_check :only => [:index, :show]
+
+
   def index
     @posts = Post.all.order("created_at DESC")
   end
