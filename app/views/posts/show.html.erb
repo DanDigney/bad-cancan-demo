@@ -1,0 +1,10 @@
+<h1><%= @post.title %></h1>
+<p>Submitted on: <%= @post.created_at.strftime("%B, %d, %Y") %></p>
+<p><%= @post.body %></p>
+<p><%= link_to 'Edit This Post', edit_post_path(@post) %></p>
+<p><%= link_to 'Delete This Post', post_path(@post), method: :delete, data: { confirm: "DON'T DO IT, YOU'RE BETTER THAN THIS (You can still delete)"} %></p>
+<br />
+<h2><%= @post.comments.count %> Comments</h2>
+<%= render @post.comments %>
+<h3>Create a comment</h3>
+<%= render "comments/form" %>

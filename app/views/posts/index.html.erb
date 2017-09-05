@@ -1,0 +1,6 @@
+<h1>This is the index</h1>
+
+<% @posts.each do |post| %>
+  <h1><%= link_to post.title, post %></h1>
+  <p>Submitted <%= time_ago_in_words(post.created_at) %>.</p>
+<% end %>
